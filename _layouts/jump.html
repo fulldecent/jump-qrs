@@ -1,0 +1,34 @@
+{%- if page.uri -%}
+  {%- assign redirect = page.uri -%}
+{%- elsif page.sms.to -%}
+  {%- assign redirect = "sms:" | append: page.sms.to | append: "?body=" | append: page.sms.body -%}
+{%- elsif page.email.to -%}
+  {%- assign redirect = "mailto:" | append: page.email.to | append: "?subject=" | append: page.email.subject | append: "&body=" | append: page.email.body -%}
+{%- else -%}
+  {%- assign redirect = site.url -%}
+{%- endif -%}
+<!doctype html>
+<!-- minimal HTML redirect -->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Jump QRs</title>
+    <meta http-equiv="refresh" content="0; url={{ redirect }}">
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #333;
+            color: #eee;
+            text-align: center;
+        }
+        a {
+            color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Redirecting to <a href="{{ redirect }}">{{ redirect }}</a>
+    </p>
+</body>
+</html>

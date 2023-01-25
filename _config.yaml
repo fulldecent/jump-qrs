@@ -1,0 +1,12 @@
+collections:
+  jumps:
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: jumps
+    values:
+      layout: jump
+      permalink: /:path

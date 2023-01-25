@@ -1,0 +1,57 @@
+---
+---
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Jump QRs</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #333;
+            color: #eee;
+        }
+        .qr {
+            display: block;
+            margin: 0 auto;
+        }
+        div.page {
+            /* Use flex to center the QR code */
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        a {
+            color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <h1>Jump QRs</h1>
+    <p>
+        This website demonstrates QR codes which redirect to a destination website as configured in this repository.
+    </p>
+    <p>List of Jump QRs on this website:</p>
+    {% for page in site.jumps %}
+        <hr>
+        <div class="page">
+            <h2><a href="{{ page.url }}">{{ page.slug }}</a></h2>
+            <canvas class="qr" data-url="{{ site.url }}{{ page.url }}"></canvas>
+        </div>
+    {% endfor %}
+    </table>
+    <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js" integrity="sha256-25ncr0CpJhgbzkUiR3wu/Fkk9sSykRG2qX+upHfJUos=" crossorigin="anonymous"></script>
+    <script>
+        // For each div.qr, create a QR code with the URL of the jump page.
+        var qrDivs = document.querySelectorAll('.qr');
+        for (var i = 0; i < qrDivs.length; i++) {
+            var qrDiv = qrDivs[i];
+            var qr = new QRious({
+                element: qrDiv,
+                value: qrDiv.dataset.url,
+                size: 200
+            });
+        }
+    </script>
+</body>
+</html>
