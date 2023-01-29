@@ -9,4 +9,4 @@ defaults:
       type: jumps
     values:
       layout: jump
-      permalink: /:path
+      permalink: :path

@@ -36,7 +36,7 @@
         <hr>
         <div class="page">
             <h2><a href="{{ page.url }}">{{ page.slug }}</a></h2>
-            <canvas class="qr" data-url="{{ site.url }}{{ page.url }}"></canvas>
+            <canvas class="qr" data-url="{{ site.url }}{{ site.baseurl }}{{ page.url }}"></canvas>
         </div>
     {% endfor %}
     </table>
@@ -45,10 +45,11 @@
         // For each div.qr, create a QR code with the URL of the jump page.
         var qrDivs = document.querySelectorAll('.qr');
         for (var i = 0; i < qrDivs.length; i++) {
-            var qrDiv = qrDivs[i];
-            var qr = new QRious({
+            const qrDiv = qrDivs[i];
+            const url = qrDiv.getAttribute('data-url');
+            const qr = new QRious({
                 element: qrDiv,
-                value: qrDiv.dataset.url,
+                value: url,
                 size: 200
             });
         }
