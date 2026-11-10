@@ -2,3 +2,12 @@ _site
 /vendor
 /Gemfile.lock # Because GitHub Pages does not consider that file when building
 /.bundle
+# Yarn Berry and the Prettier cache used by the pages lint workflow
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+cache/

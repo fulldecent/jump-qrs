@@ -6,7 +6,7 @@ In other words, if you change your website or have a different mood today, you d
 
 ## How to use this demo
 
-Visit the site at https://fulldecent.github.io/jump-qrs/ and scan any of the QR codes.
+Visit the site at <https://fulldecent.github.io/jump-qrs/> and scan any of the QR codes.
 
 ## How to update the QR code destination
 
@@ -29,4 +29,8 @@ You can also run this on your own computer as follows:
    bundle exec jekyll serve
    ```
 
-3. See the URL that prints out (for me it is http://localhost:4000) and access that in your browser.
+3. See the URL that prints out (for me it is <http://localhost:4000>) and access that in your browser.
+
+## References
+
+1. This project is built based on [best practices documented in github-pages-template](https://github.com/fulldecent/github-pages-template), commit 7f01f52a68a7480c4df8841be7fc2614d60ca930. The lint workflow is that commit's .github/workflows/lint.yml. Jekyll build scripts from the template are omitted.
