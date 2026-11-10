@@ -1,2 +1,5 @@
 # Markdown is formatted by markdownlint-cli2. Prettier's Markdown parser fights kramdown.
 *.md
+
+# The liquid HTML parser inserts a new blank line on every run.
+index.html
